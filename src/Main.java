@@ -9,18 +9,15 @@ public class Main {
     private static int gameNumber =0;
     private static int gameCount =0;
     public static void main(String[] args) {
-        // BaseballGame 객체 생성 & 게임 시작
-
 
         Scanner sc = new Scanner(System.in);
         System.out.println("환영합니다! 원하시는 번호를 입력해주세요");
         while(true) {
+            // BaseballGame 객체 생성 & 게임 시작
             BaseballGame baseballGame =new BaseballGame();
             System.out.println("1. 게임시작하기 2.게임 기록 보기 3.종료하기");
             String selectNum = sc.next();
-
             if (selectNum.equals("1")) {
-
                 gameNumber++;
                 gameCount = baseballGame.play();
                 addGameMap();
@@ -34,7 +31,7 @@ public class Main {
             }
         }
     }
-
+    //게임 기록 메서드
     public static void addGameMap(){
         gameMap.put(gameNumber,gameCount);
     }
