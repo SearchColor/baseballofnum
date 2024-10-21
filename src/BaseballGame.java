@@ -15,23 +15,24 @@ public class BaseballGame {
     List<Integer> inputList = new ArrayList<Integer>();
 
     // 객체 생성시 정답을 만들도록 함
-    public BaseballGame() {
-        while(numberset.size() != this.digit){
+    public BaseballGame(int digit) {
+        this.digit= digit;
+        while(numberset.size() != digit){
             int randomNum = (int) (Math.random() * 9) + 1; //1부터9까지 랜덤수 생성
             numberset.add(randomNum);
         }
         CorrectList = new ArrayList<Integer>(numberset);
-        //System.out.println(numberset.toString());
+        System.out.println(numberset.toString());
     }
 
     public int play() {
         while (true) {
             // 1. 유저에게 입력값을 받음
-            System.out.println("중복되지않는 숫자 3자리를 입력해주세요(0은 제외)");
+            System.out.println("중복되지않는 숫자 "+digit+"자리를 입력해주세요(0은 제외)");
             while (true){  // 2. 올바른 입력값을 받았는지 검증
                 intputNumber();
                 if(!checkDigit()){
-                    System.out.println("3자리로 입력해주세요");
+                    System.out.println(digit+"자리로 입력해주세요");
                 } else if (checkZeroNum()) {
                     System.out.println("0을 제외한 숫자를 입력해주세요");
                 } else if (!checkDuplication()){
@@ -48,7 +49,7 @@ public class BaseballGame {
                 }
             }
             // 5. 정답여부 확인, 만약 정답이면 break 를 이용해 반복문 탈출
-            if(currentStrike==3){
+            if(currentStrike==digit){
                 System.out.println("*****정답입니다.*****");
                 break;
             }
@@ -99,17 +100,8 @@ public class BaseballGame {
         }
     }
     //게임카운트 증가 메서드
-    private void addGameNum(){
-        gameNum++;
-    }
+    private void addGameNum(){gameNum++;}
 
-
-
-
-//    protected boolean validateInput(String input) {
-//
-//    }
-//
     private int countStrike() {
         int strikecount = 0;
         for(int i=0;i<digit ; i++){
@@ -132,6 +124,9 @@ public class BaseballGame {
         }
         currentBall = ballcount;
         return ballcount;
+    }
+    public void setDigit(int n){
+        digit = n;
     }
 
     public void getHint() {
