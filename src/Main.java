@@ -11,8 +11,8 @@ public class Main {
     static Map<Integer,Integer> gameMap = new HashMap<Integer,Integer>();
     static OptionDisplay optionDisplay = new OptionDisplay();
     static Scanner sc = new Scanner(System.in);
-    private static int gameNumber =0;
-    private static int gameCount =0;
+    private static int gameNumber = 0;
+    private static int gameCount = 0;
 
 
     public static void main(String[] args) {
@@ -37,10 +37,6 @@ public class Main {
         }
     }
 
-
-    //게임 기록 메서드
-    public static void addGameMap(){gameMap.put(gameNumber,gameCount);}
-
     //entrySet() 메서드를 사용하여 게임기록 출력
     public static void getGameMap(){
         for (Map.Entry<Integer, Integer> entry : gameMap.entrySet()) {
@@ -51,7 +47,7 @@ public class Main {
         BaseballGame baseballGame = new BaseballGame(digit);
         gameNumber++;
         gameCount = baseballGame.play();
-        addGameMap();
+        gameMap.put(gameNumber,gameCount);
     }
 
     //입력받은 자리수가 숫자인지 확인하고 숫자이면자리수를 설정하고 게임을 시작하는 메서드
