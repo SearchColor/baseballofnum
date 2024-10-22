@@ -22,7 +22,8 @@ public class BaseballGame {
             numberset.add(randomNum);
         }
         CorrectList = new ArrayList<Integer>(numberset);
-        System.out.println(numberset.toString());
+        Collections.shuffle(CorrectList);
+//        System.out.println(CorrectList.toString());
     }
 
     public int play() {
@@ -44,7 +45,7 @@ public class BaseballGame {
                     countStrike();
                     // 6. 볼 개수 계산
                     countBall();
-                    baseballGameDisplay.displayHint(currentStrike,currentBall);
+                    baseballGameDisplay.displayHint(currentStrike,currentBall,digit);
                     break;
                 }
             }
