@@ -1,5 +1,7 @@
 
 
+import display.BaseballGameDisplay;
+
 import java.util.*;
 
 public class BaseballGame {
@@ -23,7 +25,7 @@ public class BaseballGame {
         }
         CorrectList = new ArrayList<Integer>(numberset);
         Collections.shuffle(CorrectList);
-//        System.out.println(CorrectList.toString());
+        System.out.println(CorrectList.toString());
     }
 
     public int play() {
@@ -40,11 +42,9 @@ public class BaseballGame {
                     System.out.println("중복된 숫자는 입력할수없습니다.");
                 }else{
                     // 3. 게임 진행횟수 증가
-                    addGameNum();
+                    gameNum++;
                     // 4. 스트라이크 개수 계산
-                    countStrike();
-                    // 6. 볼 개수 계산
-                    countBall();
+                    countPoint();
                     baseballGameDisplay.displayHint(currentStrike,currentBall,digit);
                     break;
                 }
@@ -55,12 +55,7 @@ public class BaseballGame {
                 break;
             }
             // 7. 힌트 출력
-            if(gameNum >= 5 && gameNum < 10){
-                getHint();
-            } else if (gameNum >= 10) {
-                getHint2();
-            }
-
+            getHint(gameNum,digit);
         }
         // 게임 진행횟수 반환
         return gameNum;
@@ -87,7 +82,6 @@ public class BaseballGame {
                 inputList.set(i,(Integer.parseInt(str.substring(i,i+1))));
             }
         }
-//        System.out.println("inputList size : "+inputList.stream().distinct().count());
         return digit == inputList.stream().distinct().count();
     }
     //숫자 입력 메서드
@@ -100,40 +94,28 @@ public class BaseballGame {
             intputNumber();
         }
     }
-    //게임카운트 증가 메서드
-    private void addGameNum(){gameNum++;}
 
-    private int countStrike() {
+    private void countPoint() {
         int strikecount = 0;
+        int ballcount = 0;
         for(int i=0;i<digit ; i++){
             if(CorrectList.get(i) == inputList.get(i) ){
                 strikecount ++;
-            }
-        }
-        currentStrike = strikecount;
-        return strikecount;
-    }
-
-    private int countBall() {
-        int ballcount = 0;
-        for(int i=0;i<digit ; i++){
-            if(CorrectList.get(i) != inputList.get(i) ){
+            }else if(CorrectList.get(i) != inputList.get(i)){
                 if(CorrectList.contains(inputList.get(i))){
                     ballcount++;
                 }
             }
         }
+        currentStrike = strikecount;
         currentBall = ballcount;
-        return ballcount;
-    }
-    public void setDigit(int n){
-        digit = n;
     }
 
-    public void getHint() {
-        System.out.println("첫번째 자리는 : " + CorrectList.get(0));
-    }
-    public void getHint2() {
-        System.out.println("두번째 자리는 : " + CorrectList.get(1));
+    public void getHint(int gameNum , int digit) {
+        for(int i=1 ;i<=digit ; i++){
+            if(gameNum >= 5*i){
+                System.out.println(i+"번째 자리는 : " + CorrectList.get(i-1));
+            }
+        }
     }
 }
