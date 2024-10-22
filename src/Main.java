@@ -34,6 +34,8 @@ public class Main {
     }
     //게임 기록 메서드
     public static void addGameMap(){gameMap.put(gameNumber,gameCount);}
+
+    //entrySet() 메서드를 사용하여 게임기록 출력
     public static void getGameMap(){
         for (Map.Entry<Integer, Integer> entry : gameMap.entrySet()) {
             System.out.printf("%s번째 게임 -> %s번\n", entry.getKey(), entry.getValue());
