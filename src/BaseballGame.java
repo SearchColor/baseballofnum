@@ -19,21 +19,18 @@ public class BaseballGame {
     // 객체 생성시 정답을 만들도록 함
     public BaseballGame(int digit) {
         this.digit = digit;
-        while (numberset.size() != digit) {
-            int randomNum = (int) (Math.random() * 9) + 1; //1부터9까지 랜덤수 생성
-            numberset.add(randomNum);
-        }
-        CorrectList = new ArrayList<Integer>(numberset);
-        Collections.shuffle(CorrectList);
-        System.out.println(CorrectList.toString());
+        createCorrectList();
     }
 
     public int play() {
+
         while (true) {
-            // 1. 유저에게 입력값을 받음
+
             System.out.println("중복되지않는 숫자 " + digit + "자리를 입력해주세요(0은 제외)");
-            while (true) {  // 2. 올바른 입력값을 받았는지 검증
+            while (true) {
+                // 1. 유저에게 입력값을 받음
                 checkNumber();
+                // 2. 올바른 입력값을 받았는지 검증
                 if (!checkDigit()) {
                     System.out.println(digit + "자리로 입력해주세요");
                 } else if (checkZeroNum()) {
@@ -43,8 +40,9 @@ public class BaseballGame {
                 } else {
                     // 3. 게임 진행횟수 증가
                     gameNum++;
-                    // 4. 스트라이크 개수 계산
+                    // 4. 스트라이크,ball 계산
                     countPoint();
+                    // 점수화면 출력
                     baseballGameDisplay.displayHint(currentStrike, currentBall, digit);
                     break;
                 }
@@ -60,6 +58,7 @@ public class BaseballGame {
         // 게임 진행횟수 반환
         return gameNum;
     }
+
 
     // 자리수 확인
     public boolean checkDigit() {
@@ -122,5 +121,16 @@ public class BaseballGame {
                 System.out.println(i + "번째 자리는 : " + CorrectList.get(i - 1));
             }
         }
+    }
+
+    //1~9까지 랜덤한수로 Collection 배열에 대입
+    public void createCorrectList(){
+        while (numberset.size() != digit) {
+            int randomNum = (int) (Math.random() * 9) + 1; //1부터9까지 랜덤수 생성
+            numberset.add(randomNum);
+        }
+        CorrectList = new ArrayList<Integer>(numberset); //유저가 입력한 배열과 비교하기위해 Set->List 로변환
+        Collections.shuffle(CorrectList);
+        System.out.println(CorrectList.toString());
     }
 }
