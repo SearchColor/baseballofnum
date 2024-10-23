@@ -2,7 +2,7 @@
 <img src="https://lh3.googleusercontent.com/proxy/QUQqPUqt6i3ayKtW7WKp7VkyLWIcuzM3wnU633FZaywlDdIhtQ4YOMVKxJeV1nv-4TDtFwU9HgRrWgwdl6TpZRFdDPxkC63cc5j5AwA02Lv_T0nd72BRqYz8KaZ0KUBgWLYJO9qzKG4" width="20%" height="20%" title="px(픽셀) 크기 설정" alt="Calculator"></img>
 </p>
 
-# baseballofnum Project
+# baseballofnum Project
 설정한 자리수의 숫자를 맞추는 게임.
 
 >- ## Game Rule
