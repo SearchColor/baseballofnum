@@ -25,6 +25,7 @@
 >- ->정답 생성 , 포인트 계산(strike,ball) , 힌트 생성 및 출력
 >- display : 게임 옵션화면 , 게임화면 담당
 >- -> optionDisplay , baseballGameDisplay
+>- <img src="http://octodex.github.com/images/minion.png" alt="Minion" />
 >```java
 >while(true){ //반복적으로 계산을 하기위한 전체 반복문
 >
