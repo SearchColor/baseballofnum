@@ -18,24 +18,15 @@
 >4. 게임 기록
 >5. 프로그램 종료기능
 >---
->- ## class 설계
+>- ## Class 설계
 >- Main class : 프로그램 전반적인 부분을 담당
 >- ->자리수 설정 , 게임 시작 , 게임 기록 , 게임 종료
 >- BaseballGame class : 게임 기능을 담당
 >- ->정답 생성 , 포인트 계산(strike,ball) , 힌트 생성 및 출력
 >- display : 게임 옵션화면 , 게임화면 담당
 >- -> optionDisplay , baseballGameDisplay
->- <img src="http://octodex.github.com/images/minion.png" alt="Minion" />
->```java
->while(true){ //반복적으로 계산을 하기위한 전체 반복문
+>- <img src="스크린샷 2024-10-23 오전 11.35.35.png" alt="Minion" />
 >
->      while(true){ //intput 반복문
->        // input data 입력받는 내용
->        // 개별로 입력받아 잘못입력받을시 그지점에서 다시 입력받기위해 반복문으로 구현
->      }
->
->}
->```
 >---
 > - ## 기능 구현 설계
 >> - 자리수 설정 
