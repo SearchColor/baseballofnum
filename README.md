@@ -48,6 +48,7 @@
 >>   - main class 안의 while 문을 break 하여 구현
 >>
 >> 자세한 코드의 설명은 코드내에 주석을 확인
+>> 
 >> [velog](https://velog.io/@skykid/2024.10.22-TIL#methods)
 
 
