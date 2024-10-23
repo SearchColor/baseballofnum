@@ -5,7 +5,7 @@ import display.BaseballGameDisplay;
 import java.util.*;
 
 public class BaseballGame {
-    private int digit = 3;
+    private final int digit ;
     private int intPutNum = 0;
     private int gameNum = 0;
     private int currentStrike = 0;
