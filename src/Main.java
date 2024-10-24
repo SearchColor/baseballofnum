@@ -42,6 +42,8 @@ public class Main {
         }
     }
 
+
+
     //entrySet() 메서드를 사용하여 게임기록 출력
     public static void getGameMap() {
         for (Map.Entry<Integer, Integer> entry : gameMap.entrySet()) {
@@ -77,6 +79,5 @@ public class Main {
                     break;
             }
         }
-
     }
 }

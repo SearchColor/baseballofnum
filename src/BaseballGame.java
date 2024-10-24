@@ -74,11 +74,11 @@ public class BaseballGame {
     //중복 숫자여부 확인
     public boolean checkDuplication() {
         String str = "" + INPUT_NUM;
-        if (inputList.isEmpty()) {
+        if (inputList.isEmpty()) { // 처음 inputList 에 값을 넣을때
             for (int i = 0; i < str.length(); i++) {
                 inputList.add((Integer.parseInt(str.substring(i, i + 1))));
             }
-        } else {
+        } else { // inputList 에 이미 값이 있을때
             for (int i = 0; i < str.length(); i++) {
                 inputList.set(i, (Integer.parseInt(str.substring(i, i + 1))));
             }
