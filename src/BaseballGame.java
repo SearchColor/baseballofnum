@@ -12,7 +12,7 @@ public class BaseballGame {
     private int CURRENT_BALL = 0;
     BaseballGameDisplay baseballGameDisplay = new BaseballGameDisplay();
 
-    Set<Integer> numberset = new HashSet<Integer>();
+    Set<Integer> numberSet = new HashSet<Integer>();
     List<Integer> correctList;
     List<Integer> inputList = new ArrayList<Integer>();
 
@@ -125,11 +125,11 @@ public class BaseballGame {
 
     //1~9까지 랜덤한수로 Collection 배열에 대입
     public void createCorrectList(){
-        while (numberset.size() != DIGIT) {
+        while (numberSet.size() != DIGIT) {
             int randomNum = (int) (Math.random() * 9) + 1; //1부터9까지 랜덤수 생성
-            numberset.add(randomNum);
+            numberSet.add(randomNum);
         }
-        correctList = new ArrayList<Integer>(numberset); //유저가 입력한 배열과 비교하기위해 Set->List 로변환
+        correctList = new ArrayList<Integer>(numberSet); //유저가 입력한 배열과 비교하기위해 Set->List 로변환
         Collections.shuffle(correctList);
         System.out.println(correctList.toString());
     }
