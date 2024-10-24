@@ -12,7 +12,7 @@ public class Main {
     static Map<Integer, Integer> gameMap = new HashMap<Integer, Integer>();
     static OptionDisplay optionDisplay = new OptionDisplay();
     static Scanner sc = new Scanner(System.in);
-    private static int gameNumber = 0;
+    private static int GAME_NUM = 0;
 
 
     public static void main(String[] args) {
@@ -51,9 +51,9 @@ public class Main {
     // BaseballGame 객체 생성 & 게임 시작
     public static void goPlay(int digit) {
         BaseballGame baseballGame = new BaseballGame(digit);
-        gameNumber++;
+        GAME_NUM++;
         int gameCount = baseballGame.play();
-        gameMap.put(gameNumber, gameCount);
+        gameMap.put(GAME_NUM, gameCount);
     }
 
     //입력받은 자리수가 숫자인지 확인하고 숫자이면자리수를 설정하고 게임을 시작
